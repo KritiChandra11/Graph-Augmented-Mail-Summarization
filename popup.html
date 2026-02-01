@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Summarizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>📧 Email Analyzer</h1>
+      <p class="subtitle">Graph-Augmented AI Summarization</p>
+    </header>
+
+    <!-- Settings Panel (Initially Hidden) -->
+    <div id="settingsPanel" class="settings-panel hidden">
+      <h3>⚙️ Settings</h3>
+      <div class="form-group">
+        <label for="apiKeyInput">Hugging Face API Key:</label>
+        <input type="password" id="apiKeyInput" placeholder="Enter your API key">
+        <button id="testApiBtn" class="btn-secondary">Test Connection</button>
+      </div>
+      <div class="form-group">
+        <label>Model:</label>
+        <div class="model-info">
+          <strong>google/pegasus-cnn_dailymail</strong>
+          <p style="font-size: 11px; color: #666; margin-top: 4px;">Google Pegasus - Abstractive Summarization</p>
+        </div>
+      </div>
+      <div class="button-group">
+        <button id="saveSettingsBtn" class="btn-primary">Save Settings</button>
+        <button id="closeSettingsBtn" class="btn-secondary">Close</button>
+      </div>
+      <div id="settingsStatus" class="status hidden"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+      <!-- Action Buttons -->
+      <div class="button-group">
+        <button id="analyzeBtn" class="btn-primary">
+          <span class="btn-icon">🤖</span> Analyze Email
+        </button>
+        <button id="settingsBtn" class="btn-secondary">
+          <span class="btn-icon">⚙️</span>
+        </button>
+      </div>
+
+      <!-- Status Message -->
+      <div id="status" class="status hidden"></div>
+
+      <!-- Loading Spinner -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Analyzing email with AI...</p>
+      </div>
+
+      <!-- Results Container -->
+      <div id="results" class="results hidden">
+        <!-- Email Info -->
+        <div class="email-info">
+          <h3 id="emailSubject"></h3>
+          <p class="email-meta">
+            <strong>From:</strong> <span id="emailSender"></span><br>
+            <strong>Date:</strong> <span id="emailDate"></span>
+          </p>
+        </div>
+
+        <!-- Urgency Classification -->
+        <div id="urgencyBadge" class="urgency-badge">
+          <div class="urgency-header">
+            <span id="urgencyLabel" class="urgency-label"></span>
+            <span id="confidenceScore" class="confidence-score"></span>
+          </div>
+          <p id="urgencyReasoning" class="urgency-reasoning"></p>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-section">
+          <h4>📝 Abstractive Summary</h4>
+          <p id="summaryText" class="summary-text"></p>
+        </div>
+
+        <!-- Key Actions -->
+        <div id="actionsSection" class="actions-section hidden">
+          <h4>✅ Key Actions Required</h4>
+          <ul id="actionsList" class="actions-list"></ul>
+        </div>
+
+        <!-- Knowledge Graph Insights -->
+        <div class="graph-insights">
+          <h4>🔍 Knowledge Graph Analysis</h4>
+          <div class="insights-grid">
+            <div class="insight-item">
+              <span class="insight-label">Categories:</span>
+              <span id="categories" class="insight-value"></span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-label">Keywords:</span>
+              <span id="keywords" class="insight-value"></span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-label">Sender Importance:</span>
+              <span id="senderImportance" class="insight-value"></span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-label">Action Items:</span>
+              <span id="actionCount" class="insight-value"></span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-label">Deadline:</span>
+              <span id="deadline" class="insight-value"></span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-label">Attachments:</span>
+              <span id="attachments" class="insight-value"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+          <button id="viewHistoryBtn" class="btn-secondary">📚 View History</button>
+          <button id="copyBtn" class="btn-secondary">📋 Copy Summary</button>
+        </div>
+      </div>
+
+      <!-- History Panel -->
+      <div id="historyPanel" class="history-panel hidden">
+        <h3>📚 Summary History</h3>
+        <div id="historyList" class="history-list"></div>
+        <div class="button-group">
+          <button id="clearHistoryBtn" class="btn-secondary">Clear History</button>
+          <button id="closeHistoryBtn" class="btn-primary">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by Hugging Face • Knowledge Graph Analysis</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

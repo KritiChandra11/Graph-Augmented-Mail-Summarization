@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Setup Guide</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 { color: #667eea; }
+    h2 { color: #764ba2; margin-top: 30px; }
+    .step { 
+      background: #f8f9fa; 
+      padding: 20px; 
+      margin: 15px 0; 
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+    code { 
+      background: #e9ecef; 
+      padding: 2px 6px; 
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    .important {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 6px;
+    }
+    a { color: #667eea; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .feature-list { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 10px; 
+      margin: 20px 0;
+    }
+    .feature-item {
+      background: #e7f3ff;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📧 Graph-Augmented Email Summarizer</h1>
+  <p><strong>AI-powered email analysis with semantic knowledge graphs</strong></p>
+
+  <h2>🚀 Quick Start Guide</h2>
+
+  <div class="step">
+    <h3>Step 1: Get Hugging Face API Key</h3>
+    <ol>
+      <li>Visit <a href="https://huggingface.co/" target="_blank">Hugging Face</a></li>
+      <li>Sign up for a free account</li>
+      <li>Navigate to Settings → Access Tokens</li>
+      <li>Create a new token (Read access is sufficient)</li>
+      <li>Copy the token</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h3>Step 2: Load Extension in Chrome/Edge</h3>
+    <ol>
+      <li>Open Chrome/Edge browser</li>
+      <li>Go to <code>chrome://extensions/</code></li>
+      <li>Enable <strong>Developer mode</strong> (toggle in top-right corner)</li>
+      <li>Click <strong>Load unpacked</strong></li>
+      <li>Select this <code>extension</code> folder</li>
+      <li>Extension icon should appear in toolbar</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h3>Step 3: Configure API Key</h3>
+    <ol>
+      <li>Click the extension icon in browser toolbar</li>
+      <li>Click the ⚙️ Settings button</li>
+      <li>Paste your Hugging Face API key</li>
+      <li>Click "Test Connection" to verify</li>
+      <li>Click "Save Settings"</li>
+    </ol>
+  </div>
+
+  <div class="step">
+    <h3>Step 4: Analyze Your First Email</h3>
+    <ol>
+      <li>Open <strong>Gmail</strong> or <strong>Outlook</strong> in your browser</li>
+      <li>Open a single email (not inbox list)</li>
+      <li>Click the extension icon</li>
+      <li>Click "🤖 Analyze Email"</li>
+      <li>Wait 3-10 seconds for AI analysis</li>
+      <li>View summary, urgency classification, and insights!</li>
+    </ol>
+  </div>
+
+  <div class="important">
+    <strong>⚠️ Important Notes:</strong>
+    <ul>
+      <li>Extension only works on <strong>Gmail</strong> and <strong>Outlook</strong> web clients</li>
+      <li>You must open a <strong>single email</strong> (not inbox view)</li>
+      <li>Requires internet connection for AI analysis</li>
+      <li>Uses <strong>Hugging Face Free Tier</strong> - no cost!</li>
+      <li>Email content is sent to Hugging Face for processing</li>
+    </ul>
+  </div>
+
+  <h2>✨ Key Features</h2>
+
+  <div class="feature-list">
+    <div class="feature-item">📝 <strong>Abstractive Summaries</strong><br>AI rewrites content in its own words</div>
+    <div class="feature-item">🚨 <strong>Urgency Classification</strong><br>Urgent vs Non-Urgent with reasoning</div>
+    <div class="feature-item">🧠 <strong>Knowledge Graph</strong><br>Semantic analysis of email structure</div>
+    <div class="feature-item">✅ <strong>Action Extraction</strong><br>Automatic detection of required tasks</div>
+    <div class="feature-item">📊 <strong>Sender Analysis</strong><br>Executive, management, or standard</div>
+    <div class="feature-item">📚 <strong>History Tracking</strong><br>Save and review past analyses</div>
+  </div>
+
+  <h2>🏗️ Technical Architecture</h2>
+
+  <p><strong>Knowledge Graph Components:</strong></p>
+  <ul>
+    <li><strong>Categories:</strong> meeting, financial, project, HR, support, sales, admin, social</li>
+    <li><strong>Keywords:</strong> Top 10 important terms with frequency analysis</li>
+    <li><strong>Urgency Indicators:</strong> Pattern matching for time-sensitive language</li>
+    <li><strong>Action Items:</strong> Detected tasks with priority scoring</li>
+    <li><strong>Sender Importance:</strong> Role-based classification</li>
+    <li><strong>Temporal Context:</strong> Deadlines, dates, meeting times</li>
+    <li><strong>Attachments:</strong> File type and count analysis</li>
+  </ul>
+
+  <p><strong>LLM Integration:</strong></p>
+  <ul>
+    <li><strong>Model:</strong> Google Pegasus (pegasus-cnn_dailymail)</li>
+    <li><strong>Provider:</strong> Hugging Face Inference API (Free Tier)</li>
+    <li><strong>Specialization:</strong> Abstractive summarization</li>
+    <li><strong>Urgency:</strong> Graph-based rule analysis (no LLM needed)</li>
+    <li><strong>Response:</strong> Concise summary with urgency classification</li>
+  </ul>
+
+  <h2>🐛 Troubleshooting</h2>
+
+  <p><strong>"Please open a single email to analyze"</strong></p>
+  <p>→ Make sure you've clicked on an email to open it fully, not just viewing the inbox list</p>
+
+  <p><strong>"API key not configured"</strong></p>
+  <p>→ Click Settings (⚙️) and add your Together AI API key</p>
+
+  <p><strong>"Could not extract email data"</strong></p>
+  <p>→ Ensure you're on Gmail or Outlook web client and email is fully loaded</p>
+
+  <p><strong>Extension not showing in toolbar</strong></p>
+  <p>→ Go to <code>chrome://extensions/</code> and check for errors, try reloading the extension</p>
+
+  <h2>📚 Academic Project Context</h2>
+
+  <p>This extension demonstrates:</p>
+  <ul>
+    <li><strong>Graph Theory:</strong> Semantic knowledge graph construction</li>
+    <li><strong>NLP:</strong> Abstractive summarization and classification</li>
+    <li><strong>Prompt Engineering:</strong> Context injection for LLM reasoning</li>
+    <li><strong>Information Retrieval:</strong> DOM-based email extraction</li>
+    <li><strong>Software Engineering:</strong> Chrome extension development (Manifest V3)</li>
+    <li><strong>Privacy-Preserving AI:</strong> No training required, client-side processing</li>
+  </ul>
+
+  <h2>📧 File Structure</h2>
+
+  <pre><code>extension/
+├── manifest.json         # Extension configuration
+├── content.js            # Email extraction (Gmail/Outlook)
+├── background.js         # Service worker orchestration
+├── knowledgeGraph.js     # Semantic graph builder
+├── llmAnalyzer.js        # Together AI integration
+├── popup.html/js/css     # User interface
+├── icons/                # Extension icons (add 16, 48, 128px)
+└── README.md             # Full documentation</code></pre>
+
+  <div class="important">
+    <strong>📌 Next Steps:</strong>
+    <ol>
+      <li>Get your Hugging Face API token (free)</li>
+      <li>Load the extension in Chrome/Edge</li>
+      <li>Configure API token in settings</li>
+      <li>Open an email and click "Analyze"</li>
+      <li>Explore the knowledge graph insights!</li>
+    </ol>
+  </div>
+
+  <p style="text-align: center; margin-top: 40px; color: #667eea;">
+    <strong>Ready to get started? Follow Step 1 above! 🚀</strong>
+  </p>
+</body>
+</html>

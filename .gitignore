@@ -1,0 +1,31 @@
+# Extension files to ignore
+styles-addon.css
+
+# API Keys and sensitive data
+*.key
+.env
+
+# Node modules (if added later)
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Build artifacts
+dist/
+build/
+*.zip

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Graph-Augmented Email Summarizer",
+  "version": "1.0.0",
+  "description": "Intelligent email summarization with knowledge graph analysis and urgency classification using LLM",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "https://outlook.office.com/*",
+    "https://router.huggingface.co/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*",
+        "https://outlook.office.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": ["https://mail.google.com/*", "https://outlook.live.com/*", "https://outlook.office.com/*"]
+    }
+  ]
+}
